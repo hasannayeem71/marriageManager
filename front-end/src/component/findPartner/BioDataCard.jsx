@@ -5,7 +5,13 @@ import man from "../../image/man.png";
 import woman from "../../image/Screenshot.pngwomen.png";
 import "./style.css";
 
-const BioDataCard = ({ s, i }) => {
+const BioDataCard = ({ s , i}) => {
+
+  
+  console.log(s , "my data")
+  console.log("hello world");
+
+  
   return (
     <div className="biodata-card" key={i}>
       <div className="card">

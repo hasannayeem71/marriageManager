@@ -22,6 +22,8 @@ useEffect( () => {
 },[email , dispatch]);
 
 
+console.log(singleSchedule   , "my details in array? ")
+
 useEffect(() => {
     if (scheduleSuccessMessage) {
       toast.success(scheduleSuccessMessage);  
@@ -46,15 +48,16 @@ useEffect(() => {
         }}
       />
             <div className="margin-container">
+              <h2>My details</h2>
                <Grid gutter="lg">
                  <Grid.Col md={12} lg={4}>
                     {
-                        singleSchedule ?? singleSchedule.map((s ,i) => <BioDataCard s={s} i={i} />)
+                         singleSchedule.map((s , i) => <BioDataCard s={s} i={i} />)
                     }
                </Grid.Col>
                <Grid.Col md={12} lg={8}>
                 {
-                   singleSchedule ?? singleSchedule.map((s ,i) => <div key={i} className="edit-and-delete">
+                    singleSchedule.map((s ,i) => <div key={i} className="edit-and-delete">
                     <div className="edit-btn">
                     
                     <Button variant="outline" leftIcon={<IconEdit size={14} />}>
@@ -71,7 +74,7 @@ useEffect(() => {
                 }
 
                {
-             singleSchedule ??  singleSchedule.map((s , i) =>   <WholeDetailsCard s={s} i={i}/> )
+               singleSchedule.map((s , i) =>   <WholeDetailsCard s={s} i={i}/> )
 
                }
 
