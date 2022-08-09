@@ -2,7 +2,7 @@ const UserModel = require("../models/authModel.js");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-//  ATLAS_URI =mongodb+srv://marriageManager:OgYH3xSPrd2aj36j@cluster0.nmgzr.mongodb.net/marriageManager?retryWrites=true&w=majority
+//  
 
 
 //register
