@@ -1,8 +1,8 @@
 import { Blockquote, Button, Grid, Select } from "@mantine/core";
-import React from "react";
+import React, { useState } from "react";
 const FilterBox = ({ allSchedule }) => {
 
-
+/* 
 
  const getMaleSex = allSchedule.filter(sex => sex.sex === "Male");
  const getFamaleSex = allSchedule.filter(sex => sex.sex === "Female");
@@ -18,9 +18,16 @@ const getRajshahi= allSchedule.filter(division => division.division === "Rajshah
 const getChittagong = allSchedule.filter(division => division.division === "Chittagong")
 const getComilla= allSchedule.filter(division => division.division === "Comilla")
 const getMyminsingh= allSchedule.filter(division => division.division === "Myminsingh")
+ */
+const [sex,setSex]= useState('')
+const [maritalStatus,setMaritalStatus] = useState('')
+const [division, setDivision] = useState('')
 
+const filteredSchedule = allSchedule.filter(schedule=>schedule.sex===sex && schedule.maritalStatus===maritalStatus && schedule.division===division)
 
-  
+const handleSearch=()=>{
+  console.log(filteredSchedule)
+}
   return (
     <div className="filter-container">
       <Grid>
@@ -34,6 +41,8 @@ const getMyminsingh= allSchedule.filter(division => division.division === "Mymin
                   label="I am Looking"
                   placeholder="Pick one"
                   searchable
+                  onChange={setSex}
+                  value={sex}
                   nothingFound="No options"
                   data={["Male", "Female"]}
                 />
@@ -44,6 +53,8 @@ const getMyminsingh= allSchedule.filter(division => division.division === "Mymin
                   label="Marital Status"
                   placeholder="Pick one"
                   searchable
+                  onChange={setMaritalStatus}
+                  value={maritalStatus}
                   nothingFound="No options"
                   data={["Married", "Single", "Divorced"]}
                 />
@@ -54,6 +65,8 @@ const getMyminsingh= allSchedule.filter(division => division.division === "Mymin
                   label="Division"
                   placeholder="Pick one"
                   searchable
+                  onChange={setDivision}
+                  value={division}
                   nothingFound="No options"
                   data={["Dhaka", "Chittagong", "Sylhet", "Comilla"]}
                 />
@@ -63,9 +76,9 @@ const getMyminsingh= allSchedule.filter(division => division.division === "Mymin
               <Button
                 variant="gradient"
                 gradient={{ from: "indigo", to: "cyan" }}
+                onClick={handleSearch}
               >
-                {" "}
-                <faSearch />
+              
                 FIND BIO DATA
               </Button>
             </div>
